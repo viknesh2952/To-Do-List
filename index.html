@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+    <div class="task-input-container">
+      <input type="text" id="task-input" placeholder="Add a task">
+      <input type="date" id="due-date" placeholder="Due Date">
+      <button id="add-task">Add Task</button>
+    </div>
+    <ul id="task-list" class="task-list"></ul>
+  </div>
+
+  <script src="/app.js"></script>
+  <script src="/service-worker.js"></script>
+</body>
+</html>
