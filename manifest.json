@@ -3,7 +3,7 @@
     "name": "To-Do List",
     "short_name": "To-Do",
     "description": "A simple To-Do List app that works offline.",
-    "start_url": "/index.html",
+    "start_url": "To-Do-List/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#4CAF50",
