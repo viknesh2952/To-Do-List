@@ -33,7 +33,7 @@ self.addEventListener("notificationclick", function (event) {
 
 // Set up a timer to trigger the notification every 12 hours
 // const twelveHours = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
-const twelveHours = 1000 * 15;
+const twelveHours = 1000 * 25;
 setInterval(() => {
   // Add logic here to check for incomplete tasks
   checkIncompleteTasks()
