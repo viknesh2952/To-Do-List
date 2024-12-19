@@ -1,7 +1,7 @@
-const request = indexedDB.open("todoDB", 1);
-request.onsuccess = function (event) {
-  db = event.target.result;
-};
+// const request = indexedDB.open("todoDB", 1);
+// request.onsuccess = function (event) {
+//   db = event.target.result;
+// };
 
 //Ask permisison to user to show the notifications
 if ("Notification" in window) {
