@@ -1,5 +1,5 @@
 // Open IndexedDB database
-let db;
+var db;
 const request = indexedDB.open("todoDB", 1);
 
 request.onsuccess = function (event) {

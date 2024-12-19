@@ -1,4 +1,3 @@
-let db;
 const request = indexedDB.open("todoDB", 1);
 request.onsuccess = function (event) {
   db = event.target.result;
