@@ -1,11 +1,11 @@
 const CACHE_NAME = 'todo-cache-v1';
 const urlsToCache = [
   // '/',
-  // '/To-Do-List/index.html',
+  '/To-Do-List/index.html',
   '/To-Do-List/styles.css',
-  // '/To-Do-List/app.js',
-  // '/To-Do-List/manifest.json',
-  // '/To-Do-List/icons/icon-512x512.png'
+  '/To-Do-List/app.js',
+  '/To-Do-List/manifest.json',
+  '/To-Do-List/icons/icon-512x512.png'
 ];
 
 // Install the service worker and cache assets

@@ -53,7 +53,7 @@ function showNotification() {
     navigator.serviceWorker.ready.then((registration) => {
       registration.showNotification("Task Reminder", {
         body: "You have incomplete tasks! Check them now.",
-        icon: "/icons/task-ico/To-Do-List/icons/icon-152x152.png", // Provide a valid icon path
+        icon: "/To-Do-List/icons/icon-152x152.png", // Provide a valid icon path
         badge: "/To-Do-List/icons/icon-512x512.png", // Optional: smaller badge icon
         actions: [
           { action: "view", title: "View Tasks" }, // Button to open tasks
