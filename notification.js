@@ -57,14 +57,13 @@ let db;
 const request = indexedDB.open("todoDB", 1);
 request.onsuccess = function (event) {
     db = event.target.result;
+    const transaction = db.transaction("tasks", "readonly");
+    const tasksStore = transaction.objectStore("tasks");
+    const getRequest = tasksStore.getAll();
+
+    getRequest.onsuccess = function (event) {
+        let incompleteTasks = event.target.result.filter((task)=> !task.completed);
+        return JSON.parse(incompleteTasks); 
+    }
 };
-const transaction = db.transaction("tasks", "readonly");
-const tasksStore = transaction.objectStore("tasks");
-const getRequest = tasksStore.getAll();
-
-getRequest.onsuccess = function (event) {
-    let incompleteTasks = event.target.result.filter((task)=> !task.completed);
-    return JSON.parse(incompleteTasks); 
-}
-
 }
