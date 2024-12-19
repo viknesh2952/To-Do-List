@@ -24,12 +24,27 @@ if ("serviceWorker" in navigator) {
 
 //Activate notification click event
 self.addEventListener("notificationclick", function (event) {
-  event.notification.close(); // Close the notification
-  // Focus or open the tasks page
-  event.waitUntil(
-    console.log(clients) && clients.openWindow("/tasks") // Change '/tasks' to your actual tasks page
-  );
-});
+    console.log("Notification clicked:", event.notification);
+    
+    event.notification.close();
+    const urlToOpen = event.notification.data?.url || "/";
+    
+    event.waitUntil(
+        clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
+        console.log("Client list:", clientList);
+        for (const client of clientList) {
+            if (client.url.includes(urlToOpen) && "focus" in client) {
+            console.log("Focusing existing client:", client);
+            return client.focus();
+            }
+        }
+        if (clients.openWindow) {
+            console.log("Opening new window:", urlToOpen);
+            return clients.openWindow(urlToOpen);
+        }
+        })
+    );
+});      
 
 // Set up a timer to trigger the notification every 12 hours
 // const twelveHours = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
@@ -55,6 +70,7 @@ function showNotification() {
         body: "You have incomplete tasks! Check them now.",
         icon: "/To-Do-List/icons/icon-152x152.png", // Provide a valid icon path
         badge: "/To-Do-List/icons/icon-512x512.png", // Optional: smaller badge icon
+        data:{url:'https://viknesh2952.github.io/To-Do-List/'},
         actions: [
           { action: "view", title: "View Tasks" }, // Button to open tasks
           { action: "dismiss", title: "Dismiss" }, // Dismiss button
