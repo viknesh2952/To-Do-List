@@ -16,7 +16,7 @@ if ("Notification" in window) {
 //Register the service worker
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("service-worker.js")
+    .register("/To-Do-List/service-worker.js")
     .then(function (registration) {
       console.log("Service Worker registered with scope:", registration.scope);
     });
