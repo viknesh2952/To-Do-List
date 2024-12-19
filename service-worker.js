@@ -48,3 +48,13 @@ self.addEventListener('activate', function (event) {
     })
   );
 });
+
+//Activate notification click event
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close(); // Close the notification
+  // Focus or open the tasks page
+  event.waitUntil(
+    console.log(clients) && clients.openWindow('/tasks') // Change '/tasks' to your actual tasks page
+  );
+});
+
