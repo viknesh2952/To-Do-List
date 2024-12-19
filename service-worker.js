@@ -1,11 +1,11 @@
 const CACHE_NAME = 'todo-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/manifest.json',
-  '/icons/icon-512x512.png'
+  '/To-Do-List/index.html',
+  '/To-Do-List/styles.css',
+  '/To-Do-List/app.js',
+  '/To-Do-List/manifest.json',
+  '/To-Do-List/icons/icon-512x512.png'
 ];
 
 // Install the service worker and cache assets
@@ -48,13 +48,3 @@ self.addEventListener('activate', function (event) {
     })
   );
 });
-
-//Activate notification click event
-self.addEventListener('notificationclick', function (event) {
-  event.notification.close(); // Close the notification
-  // Focus or open the tasks page
-  event.waitUntil(
-    console.log(clients) && clients.openWindow('/tasks') // Change '/tasks' to your actual tasks page
-  );
-});
-
