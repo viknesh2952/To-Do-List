@@ -50,6 +50,15 @@ body {
   button:hover {
     background-color: #45a049;
   }
+
+  button.clear-btn{
+    float:right;
+    background-color: #f44336;
+  }
+
+  button.clear-btn:hover{
+    background-color: #d32f2f;
+  }
   
   .task-list {
     list-style: none;

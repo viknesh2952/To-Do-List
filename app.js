@@ -40,6 +40,10 @@ document.getElementById("add-task").addEventListener("click", function () {
   }
 });
 
+document.querySelector(".clear-btn").addEventListener("click", function () {
+  deleteAllTasks();
+});
+
 // Load tasks from IndexedDB
 function loadTasks() {
   const transaction = db.transaction("tasks", "readonly");
@@ -133,6 +137,16 @@ function deleteTask(taskId) {
   const transaction = db.transaction("tasks", "readwrite");
   const tasksStore = transaction.objectStore("tasks");
   const request = tasksStore.delete(taskId);
+
+  request.onsuccess = function () {
+    loadTasks();
+  };
+}
+
+function deleteAllTasks() {
+  const transaction = db.transaction("tasks", "readwrite");
+  const tasksStore = transaction.objectStore("tasks");
+  const request = tasksStore.delete();
 
   request.onsuccess = function () {
     loadTasks();
